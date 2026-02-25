@@ -24,17 +24,17 @@ const MIME_TYPES = {
   '.wasm': 'application/wasm'
 };
 
-const server = http.createServer((req, res) => {
-  let filePath = '.' + req.url;
-  
+const ROOT_DIR = __dirname;
 
+const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
   const urlPath = parsedUrl.pathname;
-  
+
+  // Resolve file path relative to the project directory, not the cwd
+  let filePath = path.join(ROOT_DIR, urlPath);
 
   const extname = String(path.extname(urlPath)).toLowerCase();
   const hasStaticExtension = extname && extname !== '.html';
-  
 
   if (hasStaticExtension) {
     fs.readFile(filePath, (error, content) => {
@@ -49,27 +49,26 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  
-  // obsluga 
+
+  // Handle HTML pages
   if (urlPath.endsWith('.html')) {
-    filePath = '.' + urlPath;
+    filePath = path.join(ROOT_DIR, urlPath);
   } else if (!path.extname(urlPath)) {
-    // Jeśli brak rozszerzenia, spróbuj dodać .html
-    filePath += '.html';
+    // If no extension, try adding .html
+    filePath = path.join(ROOT_DIR, urlPath + '.html');
   }
-  
-  // / index.htm l
-  if (filePath.endsWith('/')) {
-    filePath += 'index.html';
+
+  // Serve index.html for directory roots
+  if (urlPath.endsWith('/')) {
+    filePath = path.join(ROOT_DIR, urlPath, 'index.html');
   }
-  
+
   const htmlExtname = String(path.extname(filePath)).toLowerCase();
   const contentType = MIME_TYPES[htmlExtname] || 'application/octet-stream';
 
   fs.readFile(filePath, (error, content) => {
     if (error) {
       if (error.code == 'ENOENT') {
-
         const cleanPath = urlPath.replace(/\.html$/, '');
         if (cleanPath !== urlPath) {
           res.writeHead(301, { 'Location': cleanPath });
@@ -83,14 +82,13 @@ const server = http.createServer((req, res) => {
         res.end(`Server Error: ${error.code}`, 'utf-8');
       }
     } else {
-
       if (urlPath.endsWith('.html') && urlPath !== '/index.html') {
         const cleanUrl = urlPath.replace(/\.html$/, '');
         res.writeHead(301, { 'Location': cleanUrl });
         res.end();
         return;
       }
-      
+
       res.writeHead(200, { 'Content-Type': contentType });
       res.end(content, 'utf-8');
     }
