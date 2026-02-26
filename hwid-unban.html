@@ -774,23 +774,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ccNexusPackage__image">
           
             
-              <a id="variantImageLink" href="https://nexuscheats.org/uploads/monthly_2025_08/spoofer.webp" class="cNexusProduct_primaryImage ipsContained" data-ipslightbox="" data-ipslightbox-group="product" data-ipsproductzoom=""><img id="variantImage" src="products/images/spoofer.webp" class="ipsImage ipsImage_thumb" alt="Permanent Spoofer"></a>
+              <a href="javascript:void(0)" onclick="openLightbox(0)" class="cNexusProduct_primaryImage ipsContained"><img id="variantImage" src="products/images/spoofer.webp" class="ipsImage ipsImage_thumb" alt="Permanent Spoofer" style="cursor: pointer;"></a>
               
             
           
             
           
         </div>
-        <div class="ccNexusPackage__images">
-          
-          
-            
-              
-            
-          
-            
-            
-          
+        <div class="ccNexusPackage__images" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px;">
+          <a href="javascript:void(0)" onclick="openLightbox(1)" style="display: block; border-radius: 8px; overflow: hidden; aspect-ratio: 16/9;">
+            <img src="public/images/hwid-unban-spoofer.jpg" alt="HWID Spoofer Device Tab" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          </a>
         </div>
       
     </div>
@@ -1908,7 +1902,65 @@ if (headerLoginForm) {
   Array.from(document.querySelectorAll('a')).filter(function(a){const t=(a.textContent||'').trim().toLowerCase();return t==='terms of service'||t==='refund policy'||t==='privacy policy';}).forEach(function(a){a.addEventListener('click',openSheet);});
 })();
 </script>
-<script src="search-functionality.js"></script>
-<script src="https://app.sellhub.cx/embed.js" data-sellhub-store-url="https://solaris.sellhub.cx" defer></script>
-<script type="module" src="https://public.sellhub.cx/embeds.js"></script>
-</body></html>
+<!-- Lightbox Modal -->
+<div id="imageLightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; align-items:center; justify-content:center;">
+  <button onclick="closeLightbox()" style="position:absolute; top:20px; right:20px; width:40px; height:40px; border-radius:50%; border:2px solid #e8a012; background:transparent; color:#e8a012; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:100001; transition: background 0.2s;" onmouseover="this.style.background='#e8a012'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#e8a012'">&times;</button>
+  <div id="lightboxCounter" style="position:absolute; top:28px; left:28px; color:#fff; font-size:14px; font-family:sans-serif; opacity:0.7; z-index:100001;"></div>
+  <button onclick="lightboxPrev()" style="position:absolute; left:15px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:2px solid #e8a012; background:transparent; color:#e8a012; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:100001; transition: background 0.2s;" onmouseover="this.style.background='#e8a012'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#e8a012'">&lsaquo;</button>
+  <button onclick="lightboxNext()" style="position:absolute; right:15px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:2px solid #e8a012; background:transparent; color:#e8a012; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:100001; transition: background 0.2s;" onmouseover="this.style.background='#e8a012'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='#e8a012'">&rsaquo;</button>
+  <img id="lightboxImage" src="" alt="" style="max-width:85%; max-height:85vh; object-fit:contain; border-radius:6px; z-index:100000;">
+</div>
+
+<script>
+var lightboxImages = [
+  'products/images/spoofer.webp',
+  'public/images/hwid-unban-spoofer.jpg'
+];
+var lightboxIndex = 0;
+
+function openLightbox(index) {
+  lightboxIndex = index;
+  updateLightbox();
+  var lb = document.getElementById('imageLightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('imageLightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function lightboxPrev() {
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
+}
+
+function lightboxNext() {
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  document.getElementById('lightboxImage').src = lightboxImages[lightboxIndex];
+  document.getElementById('lightboxCounter').textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+}
+
+document.getElementById('imageLightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  var lb = document.getElementById('imageLightbox');
+  if (lb.style.display === 'flex') {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxPrev();
+    if (e.key === 'ArrowRight') lightboxNext();
+  }
+});
+</script>
+
+ <script src="search-functionality.js"></script>
+  <script src="https://app.sellhub.cx/embed.js" data-sellhub-store-url="https://solaris.sellhub.cx" defer></script>
+  <script type="module" src="https://public.sellhub.cx/embeds.js"></script>
+  </body></html>
