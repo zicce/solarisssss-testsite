@@ -1,4 +1,6 @@
 {
+  "buildCommand": "",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "redirects": [
     {
@@ -21,6 +23,10 @@
       "destination": "/fortnite.html"
     },
     {
+      "source": "/fortnite-internal",
+      "destination": "/fortnite-internal.html"
+    },
+    {
       "source": "/battlefield-6",
       "destination": "/battlefield-6.html"
     },
@@ -35,6 +41,10 @@
     {
       "source": "/hwid-unban",
       "destination": "/hwid-unban.html"
+    },
+    {
+      "source": "/temp-unban",
+      "destination": "/temp-unban.html"
     },
     {
       "source": "/forum",
