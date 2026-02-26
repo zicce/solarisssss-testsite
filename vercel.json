@@ -27,6 +27,10 @@
       "destination": "/fortnite-internal.html"
     },
     {
+      "source": "/ai-aimbot",
+      "destination": "/ai-aimbot.html"
+    },
+    {
       "source": "/battlefield-6",
       "destination": "/battlefield-6.html"
     },
