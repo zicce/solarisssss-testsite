@@ -1179,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const statusPalette = {
     success: { color: '#22e41d', bg: 'rgba(34,228,29,0.20)' },
-    warning: { color: '#60a5fa', bg: 'rgba(96,165,250,0.20)' }
+    warning: { color: '#4a9eff', bg: 'rgba(30,100,255,0.20)' }
   };
 
   // Preload product images immediately on page load
@@ -1230,7 +1230,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sortLabel: 'Sort by',
       image: 'images.home/BO6.webp.91d8d973248ace5981dafc1603ed6ecf.webp',
       cards: [
-        { name: 'Black Ops 7', price: '€4.99', statusText: 'UPDATING (NOT WORKING)', statusType: 'warning', link: 'bo6-warzone-external', image: 'products/images/blackops.webp' }
+        { name: 'Black Ops 7', price: '€4.99', statusText: 'UPDATING (NOT WORKING)', statusType: 'warning', statusIcon: 'fa-wrench', link: 'bo6-warzone-external', image: 'products/images/blackops.webp' }
       ]
     },
     rust: {
@@ -1266,7 +1266,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="productStatus">
             <div class="_status" style="color: ${card.statusColor || palette.color}; background: ${card.statusBg || palette.bg};">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+              <i class="fas ${card.statusIcon || 'fa-shield-alt'}" aria-hidden="true"></i>
               <span>${card.statusText}</span>
             </div>
           </div>
