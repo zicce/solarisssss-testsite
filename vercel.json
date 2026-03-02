@@ -83,6 +83,10 @@
       "destination": "/support.html"
     },
     {
+      "source": "/terms-of-service",
+      "destination": "/terms-of-service.html"
+    },
+    {
       "source": "/products-topics/:path",
       "destination": "/products-topics/:path.html"
     }
