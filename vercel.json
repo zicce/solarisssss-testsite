@@ -87,6 +87,10 @@
       "destination": "/terms-of-service.html"
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
       "source": "/products-topics/:path",
       "destination": "/products-topics/:path.html"
     }
