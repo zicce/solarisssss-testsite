@@ -87,13 +87,10 @@
       "destination": "/terms-of-service.html"
     },
     {
-<<<<<<< HEAD
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
     },
     {
-=======
->>>>>>> 3f8c4f530416bcef7923d912ad3eec97b3162222
       "source": "/products-topics/:path",
       "destination": "/products-topics/:path.html"
     }
