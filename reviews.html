@@ -601,8 +601,7 @@ Unlock the full potential of every game with our Undetected Cheats. Enjoy our pr
                     <h2 class="cFooterLinks_title">Support & Contact</h2>
                     <div class="cFooterLinks">
                       <ul class="cFooterLinks_list">
-                        <li><a href="/">Terms of Service</a></li>
-                        <li><a href="/">Refund Policy</a></li>
+                        <li><a href="/terms-of-service/">Terms of Service</a></li>
                         <li><a href="/">Privacy Policy</a></li>
                         <li><a href="https://discord.gg/solaris">Support</a></li>
                       </ul>
@@ -1017,39 +1016,6 @@ if (headerLoginForm) {
   });
 }
 </script>
-<style>
-.tosOverlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .25s ease;z-index:99998}
-.tosPanel{position:fixed;left:0;right:0;bottom:0;height:85vh;background:rgb(34,39,57);color:#fff;border-top-left-radius:14px;border-top-right-radius:14px;transform:translateY(100%);transition:transform .3s ease;z-index:99999;box-shadow:0 -10px 30px rgba(0,0,0,.5);padding:20px 24px;overflow:auto;border-top:2px solid #0066ff}
-.tosPanel h3{margin:0 0 8px 0}
-.tosPanel a{color:#66b3ff}
-.tosClose{position:absolute;right:12px;top:12px;background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer}
-.tosOpen .tosOverlay{opacity:1;visibility:visible}
-.tosOpen .tosPanel{transform:translateY(0)}
-</style>
-<div class="tosOverlay" id="tosOverlay"></div>
-<div class="tosPanel" id="tosPanel">
-  <button class="tosClose" id="tosClose" aria-label="Close">✕</button>
-  <h3>Terms of Service</h3>
-  <ol>
-    <li>Follow all Discord community guidelines and TOS.<br><a href="https://discord.com/guidelines" target="_blank" rel="noopener">https://discord.com/guidelines</a><br><a href="https://discord.com/terms" target="_blank" rel="noopener">https://discord.com/terms</a></li>
-    <li>Spam / Promotion & NSFW<br>Spamming in our members' DMs, spam on chat channels, tickets, promoting ourselves, sending NSFW content, insults, false rumors are punished. Timeout/Perm depends on the offense.</li>
-    <li>Tickets<br>Referring to point 2, spamming / pinging on tickets will be severely punished with timeouts or bans.</li>
-    <li>Attempts to manipulate our programs<br>Any attempts at cracking / debugging etc. will be punished with a permanent ban from the server, Loaders.</li>
-    <li>Refunds<br>No refunds given. If you didn't read the requirements of the product and how it works, it's not our problem. If the situation is exceptional and something really doesn't work for you, you have an extraordinary problem, ping the administration and wait. If we notice our mistake and precisely determine the situation, we will be able to refund.</li>
-    <li>Keysharing<br>Any attempts to keyshare or resell keys will result in a license and user ban.</li>
-    <li>Losing key / HWID Reset<br>If you lost your key, it's your fault. Your task after purchase is to save the key. If you need HWID reset and you lost the key, you won't get it back either. HWID Reset - 1x per week.</li>
-  </ol>
-</div>
-<script>
-(function(){
-  const root=document.documentElement;const overlay=document.getElementById('tosOverlay');const closeBtn=document.getElementById('tosClose');
-  function openSheet(e){if(e){e.preventDefault();}root.classList.add('tosOpen');}
-  function closeSheet(){root.classList.remove('tosOpen');}
-  overlay&&overlay.addEventListener('click',closeSheet);
-  closeBtn&&closeBtn.addEventListener('click',closeSheet);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSheet();}});
-  Array.from(document.querySelectorAll('a')).filter(function(a){const t=(a.textContent||'').trim().toLowerCase();return t==='terms of service'||t==='refund policy'||t==='privacy policy';}).forEach(function(a){a.addEventListener('click',openSheet);});
-})();
-</script>
+
 <script src="search-functionality.js"></script>
 </body></html>
