@@ -1,4 +1,6 @@
 {
+  "buildCommand": "",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "redirects": [
     {
@@ -21,6 +23,14 @@
       "destination": "/fortnite.html"
     },
     {
+      "source": "/fortnite-internal",
+      "destination": "/fortnite-internal.html"
+    },
+    {
+      "source": "/ai-aimbot",
+      "destination": "/ai-aimbot.html"
+    },
+    {
       "source": "/battlefield-6",
       "destination": "/battlefield-6.html"
     },
@@ -35,6 +45,10 @@
     {
       "source": "/hwid-unban",
       "destination": "/hwid-unban.html"
+    },
+    {
+      "source": "/temp-unban",
+      "destination": "/temp-unban.html"
     },
     {
       "source": "/forum",
@@ -67,6 +81,14 @@
     {
       "source": "/support",
       "destination": "/support.html"
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
     },
     {
       "source": "/products-topics/:path",
